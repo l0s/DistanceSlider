@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="DistanceSlider" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,8 +16,34 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.025000000000000001" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="gjd-8r-u0m">
+                                <rect key="frame" x="73" y="285" width="454" height="31"/>
+                                <connections>
+                                    <action selector="updateDistance:forEvent:" destination="vXZ-lx-hvc" eventType="valueChanged" id="aQ8-ov-NVO"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_DISTANCE_LABEL_" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLv-wo-Mc4">
+                                <rect key="frame" x="0.0" y="199.5" width="600" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gjd-8r-u0m" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="21u-L6-ipA"/>
+                            <constraint firstItem="gjd-8r-u0m" firstAttribute="top" secondItem="bLv-wo-Mc4" secondAttribute="bottom" constant="65" id="GAe-PY-2Z2"/>
+                            <constraint firstAttribute="centerX" secondItem="bLv-wo-Mc4" secondAttribute="centerX" id="XAX-4w-SMj"/>
+                            <constraint firstAttribute="centerY" secondItem="gjd-8r-u0m" secondAttribute="centerY" id="YLI-Mg-87o"/>
+                            <constraint firstItem="gjd-8r-u0m" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="0.75" id="hEC-oh-8Ss"/>
+                            <constraint firstItem="bLv-wo-Mc4" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="mcl-Nb-b8d"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="bLv-wo-Mc4" id="E9V-lu-PMb"/>
+                        <outlet property="slider" destination="gjd-8r-u0m" id="84h-CQ-jMq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
