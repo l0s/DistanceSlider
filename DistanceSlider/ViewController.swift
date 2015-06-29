@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController
+{
 
 
     @IBOutlet weak var label: UILabel!
@@ -20,7 +21,8 @@ class ViewController: UIViewController {
 
     var distanceInMiles = 50
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
         slider.value = 0.1855 // sets starting radius to ~50 (will vary depending on the base)
@@ -35,7 +37,8 @@ class ViewController: UIViewController {
         return Int( roundedValue )
     }
 
-    @IBAction func updateDistance(sender: UISlider, forEvent event: UIEvent) {
+    @IBAction func updateDistance(sender: UISlider, forEvent event: UIEvent)
+    {
         distanceInMiles = calculateDistance( sender.value )
 
         label.text = "\(distanceInMiles) Miles"
